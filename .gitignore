@@ -1,0 +1,1 @@
+.venv/\n__pycache__/\n*.pyc\nlelong.db\nstatic/uploads/*\n.env\n
