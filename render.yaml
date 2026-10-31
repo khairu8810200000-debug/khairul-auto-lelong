@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: khairul-auto-lelong
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: DATABASE_PATH
+        value: /var/data/lelong.db
+      - key: UPLOAD_DIR
+        value: /var/data/uploads
+      - key: COOKIE_SECURE
+        value: "1"
+    disk:
+      name: khairul-auto-lelong-data
+      mountPath: /var/data
+      sizeGB: 1
